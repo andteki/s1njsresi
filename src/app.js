@@ -6,6 +6,8 @@ const cityElem = document.querySelector('#city');
 const salaryElem = document.querySelector('#salary');
 const tableBody = document.querySelector('#tableBody');
 
+var actualTr = null;
+
 addButton.addEventListener('click', () => {
     const name = nameElem.value;
     const city = cityElem.value;
@@ -56,7 +58,19 @@ function setEvent(delButton, id) {
     // delButton.setAttribute('data-id', id);
     delButton.addEventListener('click', () => {
         // console.log(delButton.dataset.id);
-        console.log(id);
+        
+        delEmplyoee(id);
+        actualTr = delButton.parentElement.parentElement;
+        actualTr.parentNode.removeChild(actualTr);
+    });
+}
+
+function delEmplyoee(id) {
+    console.log(id);
+    let url2 = url + '/' + id;
+    //console.log(url2);
+    fetch(url2, {
+        method: 'delete'
     });
 }
 
