@@ -47,6 +47,7 @@ function renderEmployees(employees) {
         let tdEdit = document.createElement('td');
         let editButton = document.createElement('button');
         editButton.textContent = 'Szerkesztés';
+        setEditButtonEvent(editButton, employee);
         tdEdit.appendChild(editButton);
 
         tableBody.appendChild(tr);
@@ -80,6 +81,12 @@ function delEmplyoee(id) {
     let url = host + endpoint + '/' + id;
     fetch(url, {
         method: 'delete'
+    });
+}
+
+function setEditButtonEvent(editButton, employee) {
+    editButton.addEventListener('click', () => {
+        console.log(employee.name);
     });
 }
 
