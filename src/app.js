@@ -45,13 +45,21 @@ function renderEmployees(employees) {
 
         let tdDelete = document.createElement('td');
         let delButton = document.createElement('button');
-        delButton.textContent = 'Törlés';
+        
+        delButton.classList.add('btn');
+        delButton.classList.add('btn-primary');
+
+        delButton.innerHTML = 'Törlés<i class="bi bi-trash"></i>';
         setEvent(delButton, employee.id);
         tdDelete.appendChild(delButton);
 
         // szerkesztés
         let tdEdit = document.createElement('td');
         let editButton = document.createElement('button');
+
+        editButton.classList.add('btn');
+        editButton.classList.add('btn-primary');
+
         editButton.textContent = 'Szerkesztés';
         setEditButtonEvent(editButton, employee);
         tdEdit.appendChild(editButton);

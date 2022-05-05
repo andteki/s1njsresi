@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resi</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="bootstrap-icons.css">
+    <script src="js/bootstrap.js"></script>
 </head>
 <body>
+
+<div class="container">
+    
     <h1>Resi</h1>
     <div class="urlap">
         <div>
@@ -24,8 +30,7 @@
             Hozzáad
         </button>
     </div>
-
-    <table>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Id</th>
@@ -35,11 +40,8 @@
             </tr>
         </thead>
         <tbody id="tableBody">
-
         </tbody>
     </table>
-
-
     <div class="editForm">
         <div>
             <label for="editId">Id</label>
@@ -61,7 +63,7 @@
             Mentés
         </button>
     </div>
-
+</div>
 
 
     <script src="app.js"></script>
