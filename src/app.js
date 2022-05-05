@@ -1,5 +1,5 @@
 
-const url = 'http://localhost:3000/employees';
+const host = 'http://localhost:3000/';
 const addButton = document.querySelector('#addButton');
 const nameElem = document.querySelector('#name');
 const cityElem = document.querySelector('#city');
@@ -18,6 +18,9 @@ addButton.addEventListener('click', () => {
 getEmployees();
 
 function getEmployees() {
+    tableBody.innerHTML = '';
+    let endpoint = 'employees';
+    let url = host + endpoint;
     fetch(url)
     .then(res => res.json())
     .then(res => {
@@ -66,15 +69,16 @@ function setEvent(delButton, id) {
 }
 
 function delEmplyoee(id) {
-    console.log(id);
-    let url2 = url + '/' + id;
-    //console.log(url2);
-    fetch(url2, {
+    let endpoint = 'employees';
+    let url = host + endpoint + '/' + id;
+    fetch(url, {
         method: 'delete'
     });
 }
 
 function addEmployee(name, city, salary) {
+    let endpoint = 'employees';
+    let url = host + endpoint;
     fetch(url, {
         method: "post",
         body: JSON.stringify({
@@ -90,4 +94,5 @@ function addEmployee(name, city, salary) {
     .then(res => {
         console.log(res);
     });
+    getEmployees();
 }
