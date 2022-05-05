@@ -6,6 +6,12 @@ const cityElem = document.querySelector('#city');
 const salaryElem = document.querySelector('#salary');
 const tableBody = document.querySelector('#tableBody');
 
+const saveButton = document.querySelector('#saveButton');
+const editIdElem = document.querySelector('#editId');
+const editNameElem = document.querySelector('#editName');
+const editCityElem = document.querySelector('#editCity');
+const editSalaryElem = document.querySelector('#editSalary');
+
 var actualTr = null;
 
 addButton.addEventListener('click', () => {
@@ -87,6 +93,43 @@ function delEmplyoee(id) {
 function setEditButtonEvent(editButton, employee) {
     editButton.addEventListener('click', () => {
         console.log(employee.name);
+        editIdElem.value = employee.id;
+        editNameElem.value = employee.name;
+        editCityElem.value = employee.city;
+        editSalaryElem.value = employee.salary;
+        actualTr = editButton.parentElement.parentElement;
+    });
+}
+
+saveButton.addEventListener('click', () => {
+    console.log('mentés')
+    actualTr.childNodes[1].textContent = editNameElem.value;
+    actualTr.childNodes[2].textContent = editCityElem.value;
+    actualTr.childNodes[3].textContent = editSalaryElem.value;
+    updateEmployee();
+    editIdElem.value = '';
+    editNameElem.value = '';
+    editCityElem.value = '';
+    editSalaryElem.value = '';
+});
+
+function updateEmployee() {
+    let endpoint = 'employees';
+    let url = host + endpoint + '/' + editIdElem.value;
+    fetch(url, {
+        method: 'put',
+        body: JSON.stringify({
+            name: editNameElem.value,
+            city: editCityElem.value,
+            salary: editSalaryElem.value,
+        }),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.json())
+    .then(res => {
+        console.log(res);
     });
 }
 
