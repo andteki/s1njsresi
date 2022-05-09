@@ -49,7 +49,7 @@ function renderEmployees(employees) {
         delButton.classList.add('btn');
         delButton.classList.add('btn-primary');
 
-        delButton.innerHTML = 'Törlés<i class="bi bi-trash"></i>';
+        delButton.innerHTML = '<i class="bi bi-trash"></i>';
         setEvent(delButton, employee.id);
         tdDelete.appendChild(delButton);
 
@@ -59,8 +59,10 @@ function renderEmployees(employees) {
 
         editButton.classList.add('btn');
         editButton.classList.add('btn-primary');
+        editButton.setAttribute('data-bs-toggle', 'modal');
+        editButton.setAttribute('data-bs-target', '#editModal');
 
-        editButton.textContent = 'Szerkesztés';
+        editButton.innerHTML = '<i class="bi bi-pencil"></i>';
         setEditButtonEvent(editButton, employee);
         tdEdit.appendChild(editButton);
 
@@ -138,6 +140,7 @@ function updateEmployee() {
     .then(res => res.json())
     .then(res => {
         console.log(res);
+        getEmployees();
     });
 }
 
@@ -158,6 +161,10 @@ function addEmployee(name, city, salary) {
     .then(res => res.json())
     .then(res => {
         console.log(res);
+        getEmployees();
+        nameElem.value='';
+        cityElem.value='';
+        salaryElem.value='';
     });
-    getEmployees();
+    
 }

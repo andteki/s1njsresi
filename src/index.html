@@ -13,23 +13,27 @@
 <div class="container">
     
     <h1>Resi</h1>
-    <div class="urlap">
-        <div>
-            <label for="name">Név</label>
-            <input type="text" id="name">
-        </div>
-        <div>
-            <label for="city">Település</label>
-            <input type="text" id="city">
-        </div>
-        <div>
-            <label for="salary">Fizetés</label>
-            <input type="text" id="salary">
-        </div>
-        <button type="button" id="addButton">
-            Hozzáad
-        </button>
-    </div>
+
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link"href="index.html">Dolgozók</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="beosztasok.html">Beosztások</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="nevjegy.html">Névjegy</a>
+        </li>
+      </ul>
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" 
+data-bs-toggle="modal" data-bs-target="#addModal">
+    Hozzáad
+</button>
+
+
+
     <table class="table table-striped">
         <thead>
             <tr>
@@ -42,28 +46,96 @@
         <tbody id="tableBody">
         </tbody>
     </table>
-    <div class="editForm">
-        <div>
-            <label for="editId">Id</label>
-            <input type="text" id="editId" readonly>
-        </div>
-        <div>
-            <label for="editName">Név</label>
-            <input type="text" id="editName">
-        </div>
-        <div>
-            <label for="editCity">Település</label>
-            <input type="text" id="editCity">
-        </div>
-        <div>
-            <label for="editSalary">Fizetés</label>
-            <input type="text" id="editSalary">
-        </div>
-        <button type="button" id="saveButton">
-            Mentés
-        </button>
-    </div>
+
 </div>
+
+
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="addModal" tabindex="-1" 
+       aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dolgozó hozzáadása</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+
+          <div class="addFrom">
+            <div>
+                <label for="name" class="form-label">Név</label>
+                <input type="text" id="name" class="form-control">
+            </div>
+            <div>
+                <label for="city" class="form-label">Település</label>
+                <input type="text" id="city" class="form-control">
+            </div>
+            <div>
+                <label for="salary" class="form-label">Fizetés</label>
+                <input type="text" id="salary" class="form-control">
+            </div>
+        </div>
+    
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" 
+            data-bs-dismiss="modal">Bezár</button>
+
+          <button type="button" class="btn btn-primary" 
+            id="addButton" data-bs-dismiss="modal">Ment</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- addModal vége-->
+
+  
+  <!-- editModal -->
+  <div class="modal fade" id="editModal" tabindex="-1" 
+  aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Dolgozó szerkesztése</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+          <div class="editForm">
+            <div>
+                <label for="editId" class="form-label">Id</label>
+                <input type="text" id="editId" readonly class="form-control">
+            </div>
+            <div>
+                <label for="editName" class="form-label">Név</label>
+                <input type="text" id="editName" class="form-control">
+            </div>
+            <div>
+                <label for="editCity" class="form-label">Település</label>
+                <input type="text" id="editCity" class="form-control">
+            </div>
+            <div>
+                <label for="editSalary" class="form-label">Fizetés</label>
+                <input type="text" id="editSalary" class="form-control">
+            </div>
+        </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" 
+          data-bs-dismiss="modal">Bezár</button>
+
+          <button type="button" class="btn btn-primary"
+          id="saveButton" data-bs-dismiss="modal">Ment</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
     <script src="app.js"></script>

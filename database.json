@@ -1,10 +1,10 @@
 {
   "employees": [
     {
-      "id": 1,
       "name": "Teknős Ernő",
       "city": "Szeged",
-      "salary": 387
+      "salary": "387",
+      "id": 1
     },
     {
       "id": 2,
@@ -37,10 +37,22 @@
       "id": 7
     },
     {
-      "name": "Pala Béla",
+      "name": "Veszett Béla",
       "city": "Szeged",
       "salary": "333",
       "id": 10
+    },
+    {
+      "name": "Tenkes Károly",
+      "city": "Szeged",
+      "salary": "345",
+      "id": 11
+    },
+    {
+      "name": "aaaa",
+      "city": "cccc",
+      "salary": "333",
+      "id": 12
     }
   ]
 }
